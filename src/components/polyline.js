@@ -49,7 +49,7 @@ export default buildComponent({
     if (!options.path) delete options.path
   },
 
-  afterCreate() {
+  afterCreate(inst) {
     let clearEvents = () => {}
 
     this.$watch(
