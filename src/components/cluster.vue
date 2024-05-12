@@ -8,10 +8,10 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import buildComponent from './build-component.js'
 
 const props = {
-  // maxZoom: {
-  //   type: Number,
-  //   twoWay: false,
-  // },
+  maxZoom: {
+    type: Number,
+    twoWay: false,
+  },
   batchSizeIE: {
     type: Number,
     twoWay: false,
