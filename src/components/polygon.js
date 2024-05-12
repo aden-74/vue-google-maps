@@ -43,8 +43,10 @@ export default buildComponent({
       default: false,
     },
   },
-  events,
   mappedProps: props,
+  events,
+  emits: events,
+
   name: 'polygon',
   ctr: () => google.maps.Polygon,
 
@@ -126,5 +128,11 @@ export default buildComponent({
         immediate: true,
       }
     )
+
+    events.forEach((event) => {
+      inst.addListener(event, (payload) => {
+        this.$emit(event, payload)
+      })
+    })
   },
 })
