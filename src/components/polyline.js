@@ -32,25 +32,26 @@ const events = [
 ]
 
 export default buildComponent({
+  mappedProps: props,
   props: {
     deepWatch: {
       type: Boolean,
       default: false,
     },
   },
-  mappedProps: props,
   events,
-  emits: events,
 
   name: 'polyline',
   ctr: () => google.maps.Polyline,
-
-  beforeCreate(options) {
-    if (!options.path) delete options.path
-  },
-
+  emits: events,
   afterCreate(inst) {
     let clearEvents = () => {}
+
+    events.forEach((event) => {
+      inst.addListener(event, (payload) => {
+        this.$emit(event, payload)
+      })
+    })
 
     this.$watch(
       'path',
@@ -83,11 +84,5 @@ export default buildComponent({
         immediate: true,
       }
     )
-
-    events.forEach((event) => {
-      inst.addListener(event, (payload) => {
-        this.$emit(event, payload)
-      })
-    })
   },
 })
