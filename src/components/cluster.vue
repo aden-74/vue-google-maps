@@ -83,7 +83,7 @@ export default buildComponent({
     }
     return MarkerClusterer
   },
-  ctrArgs: ({ map, ...otherOptions }) => [map, otherOptions],
+  ctrArgs: ({ map, ...otherOptions }) => [map, [], otherOptions],
   afterCreate(inst) {
     const reinsertMarkers = () => {
       const oldMarkers = inst.getMarkers()

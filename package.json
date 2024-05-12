@@ -43,6 +43,7 @@
     "webpack-merge": "^5.10.0"
   },
   "homepage": "https://vue-map.netlify.app/",
+  "bundleDependencies": false,
   "license": "MIT",
   "repository": {
     "type": "git",
